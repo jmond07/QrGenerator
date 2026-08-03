@@ -34,7 +34,7 @@ def fake_processing():
     for paso in pasos:
         print(f"[*] {paso}")
         time.sleep(0.8)
-    print("\n[✓] Process completed.")
+    print(Fore.GREEN + "\n[✓] Process completed." + Style.RESET_ALL)
     print("=" * 40)
     print("\n")
     time.sleep(1.9)
@@ -69,7 +69,7 @@ def generate_qr():
 
     qr.save(fName)
 
-    print("QR generated successfully!")
+    print(Fore.GREEN + "QR code generated successfully!" + Style.RESET_ALL)
     print(f"File name: {fName}")
     print(f"Saved in: {os.path.abspath(fName)}")
     print("=" * 40)
