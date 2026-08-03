@@ -50,7 +50,6 @@ def generate_qr():
         if not link:
             print(Fore.RED + "\nInvalid input. Please provide a valid link or text." + Style.RESET_ALL)
             time.sleep(1.5)
-            clear()
             print("=" * 40)
 
     print()
@@ -59,7 +58,15 @@ def generate_qr():
     qr = qrcode.make(link)
 
     print("=" * 40)
-    fName = input("Enter the name for the QR code image file (include .png): ").strip()
+    fName = ""
+    while not fName.endswith(".png"):
+        fName = input("Enter the name for the QR code image file (include .png): ").strip()
+
+        if not fName.endswith(".png"):
+            print(Fore.RED + "\nInvalid input. The file name must end with .png" + Style.RESET_ALL)
+            time.sleep(1.5)
+            print("=" * 40)
+
     qr.save(fName)
 
     print("QR generated successfully!")
